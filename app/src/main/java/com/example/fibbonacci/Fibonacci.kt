@@ -1,9 +1,16 @@
 package com.example.fibbonacci
 
+/**
+ * @author Hanna Górecka
+ * Funkcja zwraca n-elementowy ciąg fibonacciego z wykorzystaniem iteracji
+ * @param n długość ciągu
+ * @return listę elementów ciągu
+ * @throws Exception jeśli argument jest mniejszy niż 0
+ */
 fun fibo (n: Int): List<Int>
 {
 
-    check (n>0) {"Wrong argument"}
+    if (n<0) throw Exception ("Wrong argument")
     var list= mutableListOf<Int>()
     var i: Int=2
 
@@ -30,17 +37,25 @@ fun fibo (n: Int): List<Int>
     return list
 }
 
-fun fiboRec(n: Int): MutableList<Int> //https://stackoverflow.com/questions/68426233/correct-way-to-return-list-of-fibonacci-sequence-using-recursion
+/**
+ * @author Hanna Górecka
+ * Funkcja zwraca n-elementowy ciąg fibonacciego z wykorzystaniem rekurencji
+ * @param n długość ciągu
+ * @return listę elementów ciągu
+ * @throws Exception jeśli argument jest mniejszy niż 0
+ * Wspomogłam się algorytmem rekurencyjnym przedstawionym w źródle: https://stackoverflow.com/questions/68426233/correct-way-to-return-list-of-fibonacci-sequence-using-recursion
+ */
+fun fiboRec(n: Int): MutableList<Int>
 {
-    check (n>0) {"Wrong argument"}
+    if (n<0) throw Exception ("Wrong argument")
     if(n==1)
     {
         return mutableListOf<Int>(0)
     }
     else if(n==2)
     {
-        val list = mutableListOf<Int>(0,1)
-        return list
+
+        return mutableListOf<Int>(0,1)
     }
     else
     {
@@ -48,9 +63,6 @@ fun fiboRec(n: Int): MutableList<Int> //https://stackoverflow.com/questions/6842
         list.add(list[n-2]+list[n-3])
         return list
     }
-
-    assert(fiboRec(2)== listOf<Int>(0,1))
-    assert(fiboRec(4)== listOf<Int>(0,1,1,2))
 
 }
 
