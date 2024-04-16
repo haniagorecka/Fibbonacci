@@ -66,15 +66,27 @@ fun fiboRec(n: Int): MutableList<Int>
 
 }
 
+/**
+ * Funkcja testowa funkcji iteracyjnej fibo()
+ */
+fun testFibo ()
+{
+    var list = mutableListOf<Int>(0,1,1,2)
+    assert(fibo(4)==list, {"Test funkcji iteracyjnej zakończony niepowodzeniem"})
+    println("Test funkcji iteracyjnej zakończony powodzeniem")
+}
+/**
+ * Funkcja testowa funkcji rekurencyjnej fiboRec()
+ */
+fun testFiboRec ()
+{
+    var list = mutableListOf<Int>(0,1,1,2)
+    assert(fiboRec(4) ==list, {"Test funkcji rekurencyjnej zakończony niepowodzeniem"})
+    println("Test funkcji rekurencyjnej zakończony powodzeniem")
+}
+
 fun main()
 {
-val list3 = fibo(3)
-println(list3)
-val list10 = fibo(10)
-println(list10)
-val list20 = fibo(20)
-println(list20)
-
-val rec3 = fiboRec(20)
-println(rec3)
+testFibo()
+testFiboRec()
 }
